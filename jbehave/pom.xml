@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
-            <scope>runtime</scope>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
