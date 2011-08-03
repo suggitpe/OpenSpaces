@@ -24,6 +24,7 @@
 
     <modules>
         <module>jbehave-kata</module>
+        <module>simplicity-kata</module>
         <module>sample-domain-objects</module>
     </modules>
 
