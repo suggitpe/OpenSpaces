@@ -1,0 +1,8 @@
+-- Function to convert a number to roman numerals
+
+CREATE OR REPLACE FUNCTION CONVERT_TO_ROMAN_FNC
+( num_in IN NUMBER )
+RETURN VARCHAR2 AS 
+BEGIN
+  RETURN null;
+END CONVERT_TO_ROMAN_FNC;

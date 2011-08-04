@@ -1,0 +1,3 @@
+-- Test scenarios for the convert_to_roman_fnc
+-- Here's one to get you started...
+select test_convert_to_roman_fnc(1, 'I') from dual;
