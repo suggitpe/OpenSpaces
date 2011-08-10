@@ -26,6 +26,7 @@
         <module>jbehave-kata</module>
         <module>simplicity-kata</module>
         <module>sample-domain-objects</module>
+        <module>javaprofilers-kata</module>
     </modules>
 
     <dependencyManagement>
