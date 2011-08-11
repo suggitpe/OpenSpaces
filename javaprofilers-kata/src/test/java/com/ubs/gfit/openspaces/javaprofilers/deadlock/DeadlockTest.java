@@ -15,120 +15,113 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DeadlockTest {
-    private static final Logger LOGGER = LoggerFactory
-	    .getLogger(DeadlockTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DeadlockTest.class);
 
-    @Test
-    public void testDeadLock() throws InterruptedException, ExecutionException {
-	CountDownLatch synchronizationLatch = new CountDownLatch(2);
+	@Test
+	public void testDeadLock() throws InterruptedException, ExecutionException {
+		CountDownLatch synchronizationLatch = new CountDownLatch(2);
 
-	ExecutorService threadPool = initializeThreadPool();
+		ExecutorService threadPool = initializeThreadPool();
 
-	Future<Void> firstFuture = startDeadlockable(threadPool,
-		synchronizationLatch, AClassToLockOn.class,
-		AnotherClassToLockOn.class);
+		Future<Void> firstFuture = startDeadlockable(threadPool, synchronizationLatch, AClassToLockOn.class,
+				AnotherClassToLockOn.class);
 
-	Future<Void> secondFuture = startDeadlockable(threadPool,
-		synchronizationLatch, AnotherClassToLockOn.class,
-		AClassToLockOn.class);
+		Future<Void> secondFuture = startDeadlockable(threadPool, synchronizationLatch, AnotherClassToLockOn.class,
+				AClassToLockOn.class);
 
-	waitForDeadlock(synchronizationLatch);
+		waitForDeadlock(synchronizationLatch);
 
-	logDeadlock();
+		logDeadlock();
 
-	// The following call will block ad aeternum
-	waitForThreadsToComplete(firstFuture, secondFuture);
+		// The following call will block ad aeternum
+		waitForThreadsToComplete(firstFuture, secondFuture);
 
-	// This is never going to run, as the threads will deadlock
-	shutdownThreadPool(threadPool);
-    }
-
-    private void shutdownThreadPool(ExecutorService threadPool) {
-	threadPool.shutdown();
-    }
-
-    private void logDeadlock() {
-	ThreadMXBean bean = ManagementFactory.getThreadMXBean();
-	long[] threadIds = bean.findDeadlockedThreads();
-
-	if (threadIds != null) {
-	    ThreadInfo[] infos = bean.getThreadInfo(threadIds);
-
-	    for (ThreadInfo info : infos) {
-		LOGGER.error("Deadlocked thread: " + info.toString().trim());
-	    }
-	}
-    }
-
-    private void waitForDeadlock(CountDownLatch synchronizationLatch)
-	    throws InterruptedException {
-	synchronizationLatch.await();
-    }
-
-    private ExecutorService initializeThreadPool() {
-	ExecutorService threadPool = Executors.newFixedThreadPool(2);
-	return threadPool;
-    }
-
-    private void waitForThreadsToComplete(Future<Void> firstFuture,
-	    Future<Void> secondFuture) throws InterruptedException,
-	    ExecutionException {
-	firstFuture.get();
-	secondFuture.get();
-    }
-
-    private Future<Void> startDeadlockable(ExecutorService threadPool,
-	    final CountDownLatch synchronizationLatch,
-	    Class<?> firstClassToLockOn, Class<?> secondClassToLockOn) {
-
-	Future<Void> future = threadPool.submit(new Deadlockable(
-		synchronizationLatch, firstClassToLockOn, secondClassToLockOn));
-
-	return future;
-    }
-
-    private static class Deadlockable implements Callable<Void> {
-
-	private final CountDownLatch synchronizationLatch;
-
-	private final Class<?> firstClassToLockOn;
-	private final Class<?> secondClassToLockOn;
-
-	public Deadlockable(CountDownLatch synchronizationLatch,
-		Class<?> firstClassToLockOn, Class<?> secondClassToLockOn) {
-	    this.synchronizationLatch = synchronizationLatch;
-	    this.firstClassToLockOn = firstClassToLockOn;
-	    this.secondClassToLockOn = secondClassToLockOn;
+		// This is never going to run, as the threads will deadlock
+		shutdownThreadPool(threadPool);
 	}
 
-	public Void call() throws Exception {
-	    synchronized (firstClassToLockOn) {
+	private void shutdownThreadPool(ExecutorService threadPool) {
+		threadPool.shutdown();
+	}
 
-		// Synchronise with the other instance, to ensure that the next
-		// monitor is only acquired once the other instance already has
-		// it.
-		synchronizeWithTheOtherDeadlockable();
+	private void logDeadlock() {
+		ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+		long[] threadIds = bean.findDeadlockedThreads();
 
-		LOGGER.info("Thread {} acquired monitor on {}", new Object[] {
-			Thread.currentThread().getName(), firstClassToLockOn });
+		if (threadIds != null) {
+			ThreadInfo[] infos = bean.getThreadInfo(threadIds);
 
-		synchronized (secondClassToLockOn) {
-		    // This point will never be reached
+			for (ThreadInfo info : infos) {
+				LOGGER.error("Deadlocked thread: " + info.toString().trim());
+			}
 		}
-	    }
-	    return null;
 	}
 
-	private void synchronizeWithTheOtherDeadlockable()
-		throws InterruptedException {
-	    synchronizationLatch.countDown();
-	    synchronizationLatch.await();
+	private void waitForDeadlock(CountDownLatch synchronizationLatch) throws InterruptedException {
+		synchronizationLatch.await();
 	}
-    }
 
-    private static final class AClassToLockOn {
-    }
+	private ExecutorService initializeThreadPool() {
+		ExecutorService threadPool = Executors.newFixedThreadPool(2);
+		return threadPool;
+	}
 
-    private static final class AnotherClassToLockOn {
-    }
+	private void waitForThreadsToComplete(Future<Void> firstFuture, Future<Void> secondFuture)
+			throws InterruptedException, ExecutionException {
+		firstFuture.get();
+		secondFuture.get();
+	}
+
+	private Future<Void> startDeadlockable(ExecutorService threadPool, final CountDownLatch synchronizationLatch,
+			Class<?> firstClassToLockOn, Class<?> secondClassToLockOn) {
+
+		Future<Void> future = threadPool.submit(new Deadlockable(synchronizationLatch, firstClassToLockOn,
+				secondClassToLockOn));
+
+		return future;
+	}
+
+	private static class Deadlockable implements Callable<Void> {
+
+		private final CountDownLatch synchronizationLatch;
+
+		private final Class<?> firstClassToLockOn;
+		private final Class<?> secondClassToLockOn;
+
+		public Deadlockable(CountDownLatch synchronizationLatch, Class<?> firstClassToLockOn,
+				Class<?> secondClassToLockOn) {
+			this.synchronizationLatch = synchronizationLatch;
+			this.firstClassToLockOn = firstClassToLockOn;
+			this.secondClassToLockOn = secondClassToLockOn;
+		}
+
+		public Void call() throws Exception {
+			synchronized (firstClassToLockOn) {
+
+				// Synchronise with the other instance, to ensure that the next
+				// monitor is only acquired once the other instance already has
+				// it.
+				synchronizeWithTheOtherDeadlockable();
+
+				LOGGER.info("Thread {} acquired monitor on {}", new Object[] { Thread.currentThread().getName(),
+						firstClassToLockOn });
+
+				synchronized (secondClassToLockOn) {
+					// This point will never be reached
+				}
+			}
+			return null;
+		}
+
+		private void synchronizeWithTheOtherDeadlockable() throws InterruptedException {
+			synchronizationLatch.countDown();
+			synchronizationLatch.await();
+		}
+	}
+
+	private static final class AClassToLockOn {
+	}
+
+	private static final class AnotherClassToLockOn {
+	}
 }
