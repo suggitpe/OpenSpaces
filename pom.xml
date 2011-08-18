@@ -27,6 +27,7 @@
         <module>simplicity-kata</module>
         <module>sample-domain-objects</module>
         <module>javaprofilers-kata</module>
+        <module>domain-driven-design</module>
     </modules>
 
     <dependencyManagement>
