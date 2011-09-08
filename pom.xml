@@ -28,6 +28,7 @@
         <module>sample-domain-objects</module>
         <module>javaprofilers-kata</module>
         <module>domain-driven-design</module>
+        <module>testdrivendevelopment</module>
     </modules>
 
     <dependencyManagement>
