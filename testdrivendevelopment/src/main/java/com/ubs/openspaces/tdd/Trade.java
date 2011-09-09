@@ -21,10 +21,6 @@ public abstract class Trade {
         symbol = aSymbol;
     }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
     public int calculateTradePrice( PriceService aPriceService ) {
         return doCalculateTradePrice( aPriceService.getPriceFor( symbol ) );
     }

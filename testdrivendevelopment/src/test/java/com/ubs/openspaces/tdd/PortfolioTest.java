@@ -23,7 +23,6 @@ public final class PortfolioTest {
     @SuppressWarnings("unused")
     private static final Logger LOG = LoggerFactory.getLogger( PortfolioTest.class );
     private Portfolio portfolio;
-    private PriceService priceService;
 
     private static final Trade STOCK = new Stock( "FOO.L" );
     private static final Trade OPTION = new StockOption( "BAR.L", 35 );
@@ -31,7 +30,7 @@ public final class PortfolioTest {
     @Before
     public void onSetup() {
         portfolio = new Portfolio();
-        priceService = Mockito.mock( PriceService.class );
+        PriceService priceService = Mockito.mock( PriceService.class );
         when( priceService.getPriceFor( "FOO.L" ) ).thenReturn( 5 );
         when( priceService.getPriceFor( "BAR.L" ) ).thenReturn( 50 );
         portfolio.addPriceService( priceService );
