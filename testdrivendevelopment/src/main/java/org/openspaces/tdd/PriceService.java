@@ -1,4 +1,4 @@
-package com.ubs.openspaces.tdd;
+package org.openspaces.tdd;
 
 /**
  * Interface to a service that will allow us to retrieve prices for stock symbols.

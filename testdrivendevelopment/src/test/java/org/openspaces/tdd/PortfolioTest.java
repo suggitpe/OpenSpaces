@@ -1,4 +1,4 @@
-package com.ubs.openspaces.tdd;
+package org.openspaces.tdd;
 
 import org.junit.Before;
 import org.junit.Test;

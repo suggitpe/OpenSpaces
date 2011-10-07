@@ -1,4 +1,4 @@
-package com.ubs.openspaces.tdd;
+package org.openspaces.tdd;
 
 import java.util.HashMap;
 import java.util.Map;
