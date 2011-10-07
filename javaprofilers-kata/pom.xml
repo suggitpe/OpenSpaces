@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>openspaces-parent</artifactId>
-		<groupId>com.ubs.gfit.openspaces</groupId>
+		<groupId>org.openspaces</groupId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
