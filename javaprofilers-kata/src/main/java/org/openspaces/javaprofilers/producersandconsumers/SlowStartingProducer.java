@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.javaprofilers.producersandconsumers;
+package org.openspaces.javaprofilers.producersandconsumers;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -10,6 +10,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 
 import javax.annotation.Resource;
+
+import org.openspaces.javaprofilers.producersandconsumers.Message;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

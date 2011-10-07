@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.javaprofilers.producersandconsumers;
+package org.openspaces.javaprofilers.producersandconsumers;
 
 import java.sql.Timestamp;
 

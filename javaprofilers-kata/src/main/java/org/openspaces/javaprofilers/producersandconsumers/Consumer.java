@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.javaprofilers.producersandconsumers;
+package org.openspaces.javaprofilers.producersandconsumers;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

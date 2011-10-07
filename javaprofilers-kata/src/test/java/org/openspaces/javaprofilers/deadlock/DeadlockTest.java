@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.javaprofilers.deadlock;
+package org.openspaces.javaprofilers.deadlock;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
