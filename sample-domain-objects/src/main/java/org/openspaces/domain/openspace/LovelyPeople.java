@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ggl;
+package org.openspaces.domain.openspace;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +8,12 @@ import org.slf4j.LoggerFactory;
  * <p/>
  * User: suggitpe
  * Date: 27/07/11
- * Time: 16:45
+ * Time: 16:33
  */
 
-public final class TreasuryReportingBean {
+public final class LovelyPeople {
 
     @SuppressWarnings("unused")
-    private static final Logger LOG = LoggerFactory.getLogger( TreasuryReportingBean.class );
+    private static final Logger LOG = LoggerFactory.getLogger( LovelyPeople.class );
+
 }

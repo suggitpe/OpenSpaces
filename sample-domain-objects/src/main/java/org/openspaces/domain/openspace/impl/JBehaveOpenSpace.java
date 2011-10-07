@@ -1,13 +1,13 @@
-package com.ubs.gfit.openspaces.openspace.impl;
+package org.openspaces.domain.openspace.impl;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
+import org.openspaces.domain.openspace.LovelyPeople;
+import org.openspaces.domain.openspace.OpenSpaceSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ubs.gfit.openspaces.openspace.LovelyPeople;
-import com.ubs.gfit.openspaces.openspace.OpenSpaceSession;
 
 /**
  * Class to represent the open space on Jbehave;

@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.openspace;
+package org.openspaces.domain.openspace;
 
 import java.util.List;
 

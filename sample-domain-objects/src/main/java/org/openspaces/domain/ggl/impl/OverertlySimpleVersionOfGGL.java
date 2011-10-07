@@ -1,8 +1,8 @@
-package com.ubs.gfit.openspaces.ggl.impl;
+package org.openspaces.domain.ggl.impl;
 
+import org.openspaces.domain.ggl.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ubs.gfit.openspaces.ggl.*;
 
 /**
  * Really simple version of the GGL.

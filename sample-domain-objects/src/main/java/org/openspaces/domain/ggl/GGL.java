@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ggl;
+package org.openspaces.domain.ggl;
 
 /**
  * High level behaviour of the GGL function.
