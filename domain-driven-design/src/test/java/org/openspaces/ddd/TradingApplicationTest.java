@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ddd;
+package org.openspaces.ddd;
 
 import org.junit.Before;
 import org.junit.Test;

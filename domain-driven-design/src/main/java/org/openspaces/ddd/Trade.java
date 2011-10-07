@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ddd;
+package org.openspaces.ddd;
 
 /**
  * TODO: Justify why you have written this class

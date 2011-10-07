@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ddd;
+package org.openspaces.ddd;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.ddd;
+package org.openspaces.ddd;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
