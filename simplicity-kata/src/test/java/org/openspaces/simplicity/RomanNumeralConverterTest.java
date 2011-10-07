@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.simplicity;
+package org.openspaces.simplicity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
