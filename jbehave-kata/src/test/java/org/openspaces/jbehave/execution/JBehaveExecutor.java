@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.jbehave.execution;
+package org.openspaces.jbehave.execution;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -19,9 +19,9 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.ParameterConverters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openspaces.jbehave.steps.JbehaveSteps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ubs.gfit.openspaces.jbehave.steps.JbehaveSteps;
 
 import static org.jbehave.core.reporters.Format.*;
 

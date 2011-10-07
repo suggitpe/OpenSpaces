@@ -1,4 +1,4 @@
-package com.ubs.gfit.openspaces.jbehave.steps;
+package org.openspaces.jbehave.steps;
 
 import org.jbehave.core.annotations.BeforeStories;
 import org.slf4j.Logger;
