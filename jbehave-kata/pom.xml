@@ -33,7 +33,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.ubs.gfit.openspaces</groupId>
+            <groupId>org.openspaces</groupId>
             <artifactId>openspaces-sample-domain-objects</artifactId>
         </dependency>
     </dependencies>
