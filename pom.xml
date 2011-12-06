@@ -29,7 +29,7 @@
         <module>javaprofilers-kata</module>
         <module>domain-driven-design</module>
         <module>testdrivendevelopment</module>
-        <module>tdd-gof</module>
+        <module>testing-legacy-code</module>
     </modules>
 
     <dependencyManagement>
