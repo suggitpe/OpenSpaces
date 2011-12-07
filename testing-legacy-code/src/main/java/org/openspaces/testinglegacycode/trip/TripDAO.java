@@ -16,6 +16,9 @@ import org.openspaces.testinglegacycode.user.User;
  */
 public class TripDAO {
 
+	private TripDAO() {
+	}
+
 	public static List<Trip> findTripsByUser(User user) {
 		throw new DependendClassCallDuringUnitTestException(
 				"TripDAO should not be invoked on an unit test.");

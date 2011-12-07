@@ -5,15 +5,14 @@ import org.openspaces.testinglegacycode.exception.DependendClassCallDuringUnitTe
 
 public class UserSessionTest {
 
-    @Test(expected = DependendClassCallDuringUnitTestException.class)
-    public void shouldThrowExceptionWhenRetrievingLoggedUser() {
-        UserSession.getInstance().getLoggedUser();
-    }
+	@Test(expected = DependendClassCallDuringUnitTestException.class)
+	public void shouldThrowExceptionWhenRetrievingLoggedUser() {
+		UserSession.getInstance().getLoggedUser();
+	}
 
-
-    @Test(expected = DependendClassCallDuringUnitTestException.class)
-    public void shouldThrowExceptionWhen() {
-        UserSession.getInstance().isUserLoggedIn( new User() );
-    }
+	@Test(expected = DependendClassCallDuringUnitTestException.class)
+	public void shouldThrowExceptionWhen() {
+		UserSession.getInstance().isUserLoggedIn(new User());
+	}
 
 }

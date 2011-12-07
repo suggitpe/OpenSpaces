@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openspaces.testinglegacycode.exception.UserNotLoggedInException;
 import org.openspaces.testinglegacycode.user.User;
+import org.openspaces.testinglegacycode.user.UserSession;
 
 /**
  * It is worth noting that this code was originally developed by sandro mancuso
@@ -17,19 +18,24 @@ import org.openspaces.testinglegacycode.user.User;
  */
 public class TripService {
 
-	public List<Trip> getFriendTrips(User loggedUser, User friend)
-			throws UserNotLoggedInException {
-		validate(loggedUser);
-		return (friend.isFriendsWith(loggedUser)) ? findTripsForFriend(friend)
-				: new ArrayList<Trip>();
-	}
-
-	private void validate(User loggedUser) throws UserNotLoggedInException {
-		if (loggedUser == null)
+	public List<Trip> getTripsByUser(User user) throws UserNotLoggedInException {
+		List<Trip> tripList = new ArrayList<Trip>();
+		User loggedUser = UserSession.getInstance().getLoggedUser();
+		boolean isFriend = false;
+		if (loggedUser != null) {
+			for (User friend : user.getFriends()) {
+				if (friend.equals(loggedUser)) {
+					isFriend = true;
+					break;
+				}
+			}
+			if (isFriend) {
+				tripList = TripDAO.findTripsByUser(user);
+			}
+			return tripList;
+		} else {
 			throw new UserNotLoggedInException();
+		}
 	}
 
-	protected List<Trip> findTripsForFriend(User friend) {
-		return TripDAO.findTripsByUser(friend);
-	}
 }
