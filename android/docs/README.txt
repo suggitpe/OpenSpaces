@@ -16,7 +16,26 @@ Create project
 3. Import project into Eclipse using DDMS plugin ... switch to DDMS view and then create new project (File --> New)
     - select create Android project
     - select the directory where you created the android project
-4 write the application.
+4. In eclipse test that you can deploy the hello world app by selecting the project (right click) and select "run as..." -> android application.  This should interact with your emulator that you created earlier and open up teh hello world application.
+
+Build the application
+1. You should now have an application that is alterable.  Open up the res/layout/main.xml file and it shoudl open up the layout designr in eclipse.  Use this to add buttons etc to the application view.  For each of the things you have added, right click and select edit ID and give them each a sensible name that the application code can refer to.
+2. In the main Activity class (see src/<package>/HelloWorld.java) you now need to create references to these widgets using the following syntax to get them by ID:
+    Button button = (Button) findViewById(R.id.<button id>);
+3.  Give the button an OnClickListener so that you can define the behaviour when clicked
+4. Compile and test it
+You now have a running an working example of an Android Application.
+
+Things to do now:
+ - add a status 'Toast'
+ - test the application
+ - convert it to a maven build
+ - have a store of data internally (so it retains state between phone restarts)
+ - create a context menu to change the text
+ - create a normal menu item to change the text
+ - get it to upload the data to a web based store
+ - add an advert
+ - create some animation for the text
 
 
 
