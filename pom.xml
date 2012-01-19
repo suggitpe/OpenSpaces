@@ -30,6 +30,7 @@
         <module>domain-driven-design</module>
         <module>testdrivendevelopment</module>
         <module>testing-legacy-code</module>
+        <module>android-iphone-bake-off</module>
     </modules>
 
     <dependencyManagement>
