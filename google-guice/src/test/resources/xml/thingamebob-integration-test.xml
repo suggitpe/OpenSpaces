@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="transferer" class="org.openspaces.googleguice.ThingaMeBobTransfer">
+        <constructor-arg ref="reader"/>
+        <constructor-arg ref="writer"/>
+    </bean>
+
+    <bean id="reader" class="org.openspaces.googleguice.ReaderStub">
+        <constructor-arg value="3"/>
+    </bean>
+
+    <bean id="writer" class="org.openspaces.googleguice.impl.ThingaMeBobRepository">
+        <constructor-arg ref="lookupService"/>
+        <constructor-arg ref="dao"/>
+    </bean>
+
+    <bean id="lookupService" class="org.openspaces.googleguice.impl.ReallySensitiveLookupDataService"/>
+
+    <bean id="dao" class="org.openspaces.googleguice.DaoStub"/>
+
+
+</beans>

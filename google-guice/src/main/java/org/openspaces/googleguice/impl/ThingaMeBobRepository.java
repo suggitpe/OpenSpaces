@@ -16,6 +16,11 @@ public class ThingaMeBobRepository implements Repository {
     private LookupService lookupService;
     private DAO dao;
 
+    public ThingaMeBobRepository(LookupService aLookupService, DAO aDao){
+        lookupService = aLookupService;
+        dao = aDao;
+    }
+
     @Override
     public void writeThingaMeBob(ThingaMeBob aThingaMeBob) {
         boolean isOkToWriteTodao = lookupService.reallyImportantLookup(aThingaMeBob);
