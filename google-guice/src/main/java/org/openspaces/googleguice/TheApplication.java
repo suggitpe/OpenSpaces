@@ -11,9 +11,7 @@ import org.slf4j.LoggerFactory;
 public class TheApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(TheApplication.class);
-    // TODO: annotate
     private Reader reader;
-    // TODO: annotate
     private Repository repository;
 
     // TODO: annotate
