@@ -52,7 +52,7 @@ public class StateMachineConnectionIntegrationTest {
     }
 
     @Test
-    public void initialisationOfStateMachineThroughSpring() throws StateMachineException {
+    public void initialisationOfStateMachine() throws StateMachineException {
         State initial = stateMachine.getCurrentState();
         assertThat(initial, equalTo(initialState));
     }
