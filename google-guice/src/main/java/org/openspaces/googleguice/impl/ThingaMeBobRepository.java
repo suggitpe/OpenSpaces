@@ -5,6 +5,8 @@ import org.openspaces.googleguice.DAO;
 import org.openspaces.googleguice.LookupService;
 import org.openspaces.googleguice.Repository;
 import org.openspaces.googleguice.ThingaMeBob;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * User: suggitpe
@@ -13,6 +15,7 @@ import org.openspaces.googleguice.ThingaMeBob;
  */
 public class ThingaMeBobRepository implements Repository {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ThingaMeBobRepository.class);
     private LookupService lookupService;
     private DAO dao;
 

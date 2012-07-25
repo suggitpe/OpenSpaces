@@ -1,6 +1,5 @@
 package org.openspaces.googleguice;
 
-import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,7 +20,7 @@ import static org.junit.Assert.assertThat;
 public class ThingaMeBobSpringIntegrationTest {
 
     @Resource(name="transferer")
-    protected ThingaMeBobTransfer worker;
+    protected TheApplication worker;
 
     @Resource(name="reader")
     protected ReaderStub reader;

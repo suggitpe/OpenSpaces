@@ -15,7 +15,7 @@ public class ReaderStub implements Reader {
 
     @Override
     public ThingaMeBob readThingaMeBob() {
-        if (numberToReturn > 1) {
+        if (numberToReturn >= 1) {
             numberToReturn--;
             return new ThingaMeBob("test stuff");
         }

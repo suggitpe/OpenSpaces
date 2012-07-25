@@ -5,12 +5,12 @@ package org.openspaces.googleguice;
  * Date: 25/07/12
  * Time: 12:55
  */
-public class ThingaMeBobTransfer {
+public class TheApplication {
 
     private Reader reader;
     private Repository repository;
 
-    public ThingaMeBobTransfer(Reader aReader, Repository aRepository){
+    public TheApplication(Reader aReader, Repository aRepository){
         reader = aReader;
         repository = aRepository;
     }
