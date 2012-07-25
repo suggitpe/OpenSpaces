@@ -16,9 +16,12 @@ import org.slf4j.LoggerFactory;
 public class ThingaMeBobRepository implements Repository {
 
     private static final Logger LOG = LoggerFactory.getLogger(ThingaMeBobRepository.class);
+    // TODO: annotate
     private LookupService lookupService;
+    // TODO: annotate
     private DAO dao;
 
+    // TODO: annotate
     public ThingaMeBobRepository(LookupService aLookupService, DAO aDao){
         lookupService = aLookupService;
         dao = aDao;
