@@ -15,16 +15,16 @@ public class ThingaMeBobGuiceIntegrationTest {
     protected TheApplication worker;
 
     // TODO: annotate
-    protected ReaderStub reader;
+    protected Reader reader;
 
     // TODO: annotate
-    protected DaoStub dao;
+    protected DAO dao;
 
     @Test
     public void tranferThingaMeBobsFromSourceToRepository(){
-        int count = reader.getNumberToReturn();
+        int count = ((ReaderStub)reader).getNumberToReturn();
         worker.transferThingaMeBobs();
-        assertThat(dao.count(), equalTo(count));
+        assertThat(((DaoStub)dao).count(), equalTo(count));
     }
 
     // TODO: create a private inner class extending AbstractModule for the bindings
