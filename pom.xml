@@ -23,6 +23,7 @@
 
     <modules>
         <module>calisthenics</module>
+        <module>google-guice</module>
         <module>jbehave-kata</module>
         <module>simplicity-kata</module>
         <module>sample-domain-objects</module>
