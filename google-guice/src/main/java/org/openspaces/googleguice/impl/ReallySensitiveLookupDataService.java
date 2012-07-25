@@ -17,10 +17,10 @@ public class ReallySensitiveLookupDataService implements LookupService {
     @Override
     public boolean reallyImportantLookup(ThingaMeBob aThingaMeBob) {
         if ((aThingaMeBob.getStuff().length() % 2 == 0)) {
-            LOG.debug("Phew safe to proceed");
+            LOG.info("Phew safe to proceed");
             return true;
         }
-        LOG.debug("Alert alert, call HR!!!");
+        LOG.warn("Alert alert, call HR!!!");
         return false;
     }
 }

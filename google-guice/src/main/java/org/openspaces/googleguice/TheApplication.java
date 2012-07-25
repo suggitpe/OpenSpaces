@@ -1,5 +1,8 @@
 package org.openspaces.googleguice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * User: suggitpe
  * Date: 25/07/12
@@ -7,6 +10,7 @@ package org.openspaces.googleguice;
  */
 public class TheApplication {
 
+    private static final Logger LOG = LoggerFactory.getLogger(TheApplication.class);
     private Reader reader;
     private Repository repository;
 
@@ -18,6 +22,7 @@ public class TheApplication {
     public void transferThingaMeBobs(){
         ThingaMeBob thingaMeBob;
         while((thingaMeBob = reader.readThingaMeBob())!= null){
+            LOG.info("Transfering a thingy");
             repository.writeThingaMeBob(thingaMeBob);
         }
     }
