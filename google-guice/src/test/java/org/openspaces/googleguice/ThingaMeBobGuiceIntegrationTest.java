@@ -11,14 +11,11 @@ import static org.junit.Assert.assertThat;
  */
 public class ThingaMeBobGuiceIntegrationTest {
 
-    // TODO: annotate
     protected TheApplication worker;
-
-    // TODO: annotate
     protected Reader reader;
-
-    // TODO: annotate
     protected DAO dao;
+
+    // TODO: populate the members
 
     @Test
     public void tranferThingaMeBobsFromSourceToRepository(){
