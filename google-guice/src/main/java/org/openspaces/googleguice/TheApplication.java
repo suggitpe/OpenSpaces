@@ -3,6 +3,8 @@ package org.openspaces.googleguice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
+
 /**
  * User: suggitpe
  * Date: 25/07/12
@@ -14,7 +16,7 @@ public class TheApplication {
     private Reader reader;
     private Repository repository;
 
-    // TODO: annotate
+    @Inject
     public TheApplication(Reader aReader, Repository aRepository){
         reader = aReader;
         repository = aRepository;

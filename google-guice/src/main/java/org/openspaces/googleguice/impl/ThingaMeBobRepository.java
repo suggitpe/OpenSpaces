@@ -8,6 +8,8 @@ import org.openspaces.googleguice.ThingaMeBob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
+
 /**
  * User: suggitpe
  * Date: 25/07/12
@@ -19,7 +21,7 @@ public class ThingaMeBobRepository implements Repository {
     private LookupService lookupService;
     private DAO dao;
 
-    // TODO: annotate
+    @Inject
     public ThingaMeBobRepository(LookupService aLookupService, DAO aDao){
         lookupService = aLookupService;
         dao = aDao;
